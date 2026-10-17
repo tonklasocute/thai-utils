@@ -38,7 +38,7 @@ func ExampleNormalize() {
 }
 
 func ExampleGenerate() {
-	id := idcard.Generate() // random, e.g. "3849105732118"
+	id := idcard.Generate() // random, e.g. "3849105732112"
 	fmt.Println(len(id), idcard.Validate(id))
 	// Output: 13 true
 }
