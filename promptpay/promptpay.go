@@ -126,7 +126,7 @@ func VerifyChecksum(payload string) bool {
 	if err != nil {
 		return false
 	}
-	return CRC16([]byte(payload[:len(payload)-4])) == uint16(want)
+	return uint64(CRC16([]byte(payload[:len(payload)-4]))) == want
 }
 
 // CRC16 computes the CRC-16/CCITT-FALSE checksum of data (polynomial 0x1021,

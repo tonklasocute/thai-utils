@@ -194,7 +194,7 @@ func TestAmount(t *testing.T) {
 	if p == nil || *p != 12.5 {
 		t.Fatalf("Amount(12.5) = %v", p)
 	}
-	if Amount(1) == Amount(1) {
+	if a, b := Amount(1), Amount(1); a == b {
 		t.Error("Amount must return a fresh pointer on each call")
 	}
 }

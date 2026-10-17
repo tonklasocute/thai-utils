@@ -1,5 +1,5 @@
 // Package bahttext spells out amounts of money in Thai words, the way they
-// are written on cheques, receipts and tax invoices. It is the Go equivalent
+// are written on checks, receipts and tax invoices. It is the Go equivalent
 // of Excel's BAHTTEXT function:
 //
 //	bahttext.Format(1250.50) // "หนึ่งพันสองร้อยห้าสิบบาทห้าสิบสตางค์"
