@@ -1,0 +1,62 @@
+version: "2"
+
+run:
+  timeout: 5m
+
+linters:
+  default: standard # errcheck, govet, ineffassign, staticcheck, unused
+  enable:
+    - errorlint # correct use of errors.Is / errors.As and %w
+    - gocritic
+    - godot # comments end with a period
+    - gosec
+    - misspell
+    - nolintlint # nolint directives must be specific and explained
+    - predeclared
+    - revive
+    - unconvert
+    - unparam
+    - usestdlibvars
+    - whitespace
+  settings:
+    gocritic:
+      enabled-tags:
+        - diagnostic
+        - style
+        - performance
+      disabled-checks:
+        - hugeParam
+        - unnamedResult
+    misspell:
+      locale: US
+    nolintlint:
+      require-explanation: true
+      require-specific: true
+    revive:
+      rules:
+        - name: exported
+        - name: package-comments
+        - name: var-naming
+        - name: indent-error-flow
+        - name: error-strings
+        - name: error-naming
+        - name: receiver-naming
+        - name: unused-parameter
+  exclusions:
+    presets:
+      - std-error-handling
+    rules:
+      # Examples are demo programs; terse error handling is fine there.
+      - path: examples/
+        linters:
+          - errcheck
+          - gosec
+
+formatters:
+  enable:
+    - gofmt
+    - goimports
+  settings:
+    goimports:
+      local-prefixes:
+        - github.com/tonklasocute/thai-utils
